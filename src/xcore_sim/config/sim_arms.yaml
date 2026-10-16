@@ -1,0 +1,54 @@
+ar5_arm_gateway:
+  ros__parameters:
+    joint_names: ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6", "joint7"]
+    controller_topic: /position_joint_trajectory_controller/joint_trajectory
+    joint_state_topic: /joint_states
+    command_topic: /arm_servo_command
+    max_joint_step_rad: 0.1
+    trajectory_duration_s: 0.1
+    base_frame: "AR5-5_07L-W4C4A2_base"
+    tcp_frame: "AR5-5_07L-W4C4A2_tcp"
+    rotation_scale: 0.5
+    position_scale: 1.0
+    vr_rot: [0.0, 0.0, 1.0, -1.0, 0.0, 0.0, 0.0, 1.0, 0.0]
+    ik_group_name: AR5L_arm
+    ik_timeout_s: 0.5
+    ik_fallback_enabled: true
+
+/left_arm/ar5_arm_gateway:
+  ros__parameters:
+    arm_name: left
+    joint_names: ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6", "joint7"]
+    controller_topic: /position_joint_trajectory_controller/joint_trajectory
+    joint_state_topic: /joint_states
+    command_topic: /left_arm/arm_servo_command
+    max_joint_step_rad: 0.1
+    trajectory_duration_s: 0.1
+    base_frame: "AR5-5_07L-W4C4A2_base"
+    tcp_frame: "AR5-5_07L-W4C4A2_tcp"
+    motion_enabled_on_start: true
+    rotation_scale: 0.5
+    position_scale: 1.0
+    vr_rot: [0.0, 0.0, 1.0, -1.0, 0.0, 0.0, 0.0, 1.0, 0.0]
+    ik_group_name: AR5L_arm
+    ik_timeout_s: 0.5
+    ik_fallback_enabled: true
+
+/right_arm/ar5_arm_gateway:
+  ros__parameters:
+    arm_name: right
+    joint_names: ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6", "joint7"]
+    controller_topic: /position_joint_trajectory_controller/joint_trajectory
+    joint_state_topic: /joint_states
+    command_topic: /right_arm/arm_servo_command
+    max_joint_step_rad: 0.1
+    trajectory_duration_s: 0.1
+    base_frame: "AR5-5_07L-W4C4A2_base"
+    tcp_frame: "AR5-5_07L-W4C4A2_tcp"
+    motion_enabled_on_start: true
+    rotation_scale: 0.5
+    position_scale: 1.0
+    vr_rot: [0.0, 0.0, 1.0, -1.0, 0.0, 0.0, 0.0, 1.0, 0.0]
+    ik_group_name: AR5L_arm
+    ik_timeout_s: 0.5
+    ik_fallback_enabled: true

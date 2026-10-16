@@ -1,0 +1,12 @@
+vr_to_hand_mapper:
+  ros__parameters:
+    state_topic: /vr_controller_state
+    command_topic: /hand_command
+    button_x_hand_id: 0
+    button_x_preset_name: open
+    button_y_hand_id: 0
+    button_y_preset_name: close
+    button_a_hand_id: 1
+    button_a_preset_name: open
+    button_b_hand_id: 1
+    button_b_preset_name: close

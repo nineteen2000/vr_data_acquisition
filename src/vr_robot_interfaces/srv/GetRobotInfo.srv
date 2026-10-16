@@ -1,0 +1,8 @@
+# 查询 xCore 控制器和 SDK 基本信息。
+---
+bool success
+string message
+string version
+string type
+string sdk_version
+int32 joint_num

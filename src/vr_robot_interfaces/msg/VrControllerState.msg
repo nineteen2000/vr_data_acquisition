@@ -1,0 +1,16 @@
+std_msgs/Header header
+geometry_msgs/Pose left_pose
+geometry_msgs/Pose right_pose
+bool left_pose_valid
+bool right_pose_valid
+float32 left_trigger
+float32 right_trigger
+bool left_side_button
+bool right_side_button
+bool left_front_button
+bool right_front_button
+bool button_a
+bool button_b
+bool button_x
+bool button_y
+string raw_message

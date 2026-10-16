@@ -1,0 +1,94 @@
+# ROS2 / colcon build outputs
+build/
+install/
+log/
+src/lerobot
+src/vendor_ros
+!src/vendor_ros/
+src/vendor_ros/*
+!src/vendor_ros/orbbec_305/
+!src/vendor_ros/orbbec_305/COLCON_IGNORE
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Compile outputs
+*.o
+*.so
+*.so.*
+*.a
+*.dll
+*.dylib
+*.exe
+*.lib
+*.pdb
+
+# Vendored SDK libraries (stored with Git LFS)
+!src/third_party/xCoreSDK_cpp-v0.7.1/xCoreSDK_cpp-v0.7.1/lib/**/*.a
+!src/third_party/xCoreSDK_cpp-v0.7.1/xCoreSDK_cpp-v0.7.1/lib/**/*.so*
+!src/third_party/xCoreSDK_cpp-v0.7.1/xCoreSDK_cpp-v0.7.1/lib/**/*.lib
+!src/third_party/xCoreSDK_cpp-v0.7.1/xCoreSDK_cpp-v0.7.1/lib/**/*.dll
+!src/lhandpro_ws_src/src/lhandpro_service/thirdparty/lib/*.so*
+!src/third_party/LHandProLib-API-Linux-20250928/*/lib/*.so*
+!src/third_party/xcoresdk_python-v0.7.0/xcoresdk_python-v0.7.0/Release/linux/**/*.so
+!src/third_party/xcoresdk_python-v0.7.0/xcoresdk_python-v0.7.0/Release/linux/*.so
+!src/third_party/xcoresdk_python-v0.7.0/xcoresdk_python-v0.7.0/Release/windows/*.dll
+!src/third_party/xcoresdk_python-v0.7.0/xcoresdk_python-v0.7.0/Release/windows/*.lib
+!src/third_party/xcoresdk_python-v0.7.0/xcoresdk_python-v0.7.0/Release/windows/*.pyd
+!**/SOEM/oshw/win32/wpcap/Lib/**/*.a
+!**/SOEM/oshw/win32/wpcap/Lib/**/*.lib
+!src/reference/K1-W/src/OrbbecSDK_ROS2/orbbec_camera/SDK/lib/*/*.so*
+!src/vendor_ros/orbbec_305/OrbbecSDK_ROS2-2-main/orbbec_camera/SDK/lib/*/*.so*
+
+# VSCode
+.agents/
+.claude/
+.codex/
+.vscode/
+*.code-workspace
+
+# CLion / JetBrains
+.idea/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# ROS bag / data logs
+*.bag
+*.db3
+*.mcap
+*.bags
+
+# Large data / dataset folders
+data/
+datasets/
+recordings/
+
+# Environment files
+.env
+*.env
+
+# Temporary files
+*.log
+*.log.*
+*.tmp
+*.swp
+*.current_window_backup
+.pytest_cache/
+
+# Local planning and operation notes (repository root only)
+/excute_plan.md
+/Development_Plan.md
+/JAKA-VR.md
+/lerobot_record.md
+/pre_data_collect.md
+/vr_record.txt

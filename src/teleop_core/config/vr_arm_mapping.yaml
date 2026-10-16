@@ -1,0 +1,31 @@
+vr_to_arm_mapper:
+  ros__parameters:
+    state_topic: /vr_controller_state
+    command_topic: /arm_servo_command
+    left_command_topic: /left_arm/arm_servo_command
+    right_command_topic: /right_arm/arm_servo_command
+    publish_global_topic: false
+    publish_split_topics: true
+    output_mode: pose
+    deadman_threshold: 0.2
+    position_scale: 0.4
+    rotation_scale: 0.4
+    # vr_rot 为 row-major 4x4，左上 3x3 映射旋转，右侧前三个值映射平移方向。
+    # 当前 PICO raw: +X 左, +Y 上, +Z 后 -> robot: +Y 左, +Z 上, -X 后。
+    # 旧 PICO raw(+X 右, +Y 上, +Z 前): [0.0, 0.0, 1.0, -1.0, 0.0, 0.0, 0.0, 1.0, 0.0]
+    vr_rot: [0.0, 0.0, -1.0, -1.0,
+             1.0, 0.0, 0.0, 1.0,
+             0.0, 1.0, 0.0, 1.0,
+             0.0, 0.0, 0.0, 1.0]
+
+    publish_disabled_commands: true
+    left_arm_name: left
+    right_arm_name: right
+    # neutral_joints 须在关节限位内，并应等于仿真/真机启动初始构型（集成阶段对齐）。
+    # 选值依据：肘部弯曲、远离限位与奇异，±3/5/8cm 六向小位移 IK 均收敛。
+    left_neutral_joints: [0.0, -0.4, 0.0, 1.5, 0.0, 0.0, 0.0]
+    right_neutral_joints: [0.0, -0.4, 0.0, 1.5, 0.0, 0.0, 0.0]
+    joint_limits_min: [-3.1067, -2.0944, -3.1067, -1.0472, -3.1067, -0.9599, -0.9599]
+    joint_limits_max: [3.1067, 2.0944, 3.1067, 2.5307, 3.1067, 0.9599, 0.9599]
+    position_to_joint_scale: [1.4, 1.2, 1.2]
+    rotation_to_joint_scale: [0.35, 0.35, 0.35, 0.25]

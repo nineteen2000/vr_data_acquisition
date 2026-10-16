@@ -1,0 +1,110 @@
+# 机械臂公共参数放在 YAML 中，避免 launch 传递 vector 参数时出现类型解析问题。
+# 关节限位来自 V2 URDF；VR 映射和工作空间限幅为无硬件前置默认，待实机校准。
+xcore_robot_interface:
+  ros__parameters:
+    arm_name: left
+    robot_ip: "192.168.1.160"
+    local_ip: "192.168.1.3"
+    command_topic: /arm_servo_command
+    connect_on_start: false
+    state_period_s: 0.02
+    servo_period_s: 0.02
+    servo_lookahead_s: 0.03
+    servo_kp: 1.0
+    servo_max_step_rad: 0.14
+    servo_command_timeout_s: 0.1
+    rt_network_tolerance: 80
+    cartesian_input_unit: mm
+    arm_servo_input_unit: mm
+    cartesian_output_unit: m
+    accept_empty_arm_name: false
+    joint_names: ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6", "joint7"]
+    joint_limits_min: [-3.1067, -2.0944, -3.1067, -1.0472, -3.1067, -0.9599, -0.9599]
+    joint_limits_max: [3.1067, 2.0944, 3.1067, 2.5307, 3.1067, 0.9599, 0.9599]
+    # 当前实测: 上仰变向下，左旋变向右。
+    # 只翻转 robot Y/Z 对应旋转方向，保持平移方向不变。
+    vr_rot: [0.0, 0.0, -1.0, 1.0,
+             1.0, 0.0, 0.0, -1.0,
+             0.0, -1.0, 0.0, 1.0,
+             0.0, 0.0, 0.0, 1.0]
+    position_scale: 0.4
+    rotation_scale: 0.4
+    pose_reference_settle_s: 0.3
+    workspace_min: [-0.87, -0.87, -0.05]
+    workspace_max: [0.87, 0.87, 0.87]
+    # 动力学/扭矩参数留作后续安全模型接入：effort=[108,108,66,66,19,19,19] N*m。
+
+/left_arm/xcore_robot_interface:
+  ros__parameters:
+    arm_name: left
+    robot_ip: "192.168.1.160"
+    local_ip: "192.168.1.3"
+    command_topic: /left_arm/arm_servo_command
+    connect_on_start: false
+    state_period_s: 0.02
+    servo_period_s: 0.02
+    servo_lookahead_s: 0.03
+    servo_kp: 1.0
+    servo_max_step_rad: 0.14
+    servo_command_timeout_s: 0.1
+    rt_network_tolerance: 80
+    cartesian_input_unit: mm
+    arm_servo_input_unit: mm
+    cartesian_output_unit: m
+    accept_empty_arm_name: false
+    joint_names: ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6", "joint7"]
+    joint_limits_min: [-3.1067, -2.0944, -3.1067, -1.0472, -3.1067, -0.9599, -0.9599]
+    joint_limits_max: [3.1067, 2.0944, 3.1067, 2.5307, 3.1067, 0.9599, 0.9599]
+    # 当前实测: 上仰变向下，左旋变向右。
+    # 只翻转 robot Y/Z 对应旋转方向，保持平移方向不变。
+    vr_rot: [0.0, 0.0, -1.0, 1.0,
+             1.0, 0.0, 0.0, -1.0,
+             0.0, -1.0, 0.0, 1.0,
+             0.0, 0.0, 0.0, 1.0]
+    position_scale: 0.4
+    rotation_scale: 0.4
+    # position_scale: 0.8
+    # rotation_scale: 0.6
+    pose_max_linear_speed_mps: 0.20
+    pose_max_angular_speed_radps: 0.8
+    pose_reference_settle_s: 0.5
+    
+    # workspace_min: [-0.600, 0.000, -0.500]
+    # workspace_max: [0.600, 0.800, 0.500]
+
+    workspace_min: [-0.8, -0.8, -0.8]
+    workspace_max: [0.8, 0.8, 0.8]
+    # 动力学/扭矩参数留作后续安全模型接入：effort=[108,108,66,66,19,19,19] N*m。
+
+/right_arm/xcore_robot_interface:
+  ros__parameters:
+    arm_name: right
+    robot_ip: "10.0.2.164"
+    local_ip: "192.168.1.3"
+    command_topic: /right_arm/arm_servo_command
+    connect_on_start: false
+    state_period_s: 0.02
+    servo_period_s: 0.02
+    servo_lookahead_s: 0.03
+    servo_kp: 1.0
+    servo_max_step_rad: 0.14
+    servo_command_timeout_s: 0.1
+    rt_network_tolerance: 80
+    cartesian_input_unit: mm
+    arm_servo_input_unit: mm
+    cartesian_output_unit: m
+    accept_empty_arm_name: false
+    joint_names: ["joint1", "joint2", "joint3", "joint4", "joint5", "joint6", "joint7"]
+    joint_limits_min: [-3.1067, -2.0944, -3.1067, -1.0472, -3.1067, -0.9599, -0.9599]
+    joint_limits_max: [3.1067, 2.0944, 3.1067, 2.5307, 3.1067, 0.9599, 0.9599]
+    # 当前 PICO raw: +X 左, +Y 上, +Z 后 -> robot: +Y 左, +Z 上, -X 后。
+    # 旧 PICO raw(+X 右, +Y 上, +Z 前): [0.0, 0.0, 1.0, -1.0, 0.0, 0.0, 0.0, 1.0, 0.0]
+    vr_rot: [0.0, 0.0, -1.0, -1.0,
+             1.0, 0.0, 0.0, 1.0,
+             0.0, 1.0, 0.0, 1.0,
+             0.0, 0.0, 0.0, 1.0]
+    position_scale: 0.4
+    rotation_scale: 0.4
+    workspace_min: [-0.87, -0.87, -0.05]
+    workspace_max: [0.87, 0.87, 0.87]
+    # 动力学/扭矩参数留作后续安全模型接入：effort=[108,108,66,66,19,19,19] N*m。

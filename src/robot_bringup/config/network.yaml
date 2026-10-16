@@ -1,0 +1,6 @@
+network:
+  lhandpro_interface_names:
+    - "enp0s31f6"
+    - "enx6c1ff714c4ec"
+  pico_server_port: 8018
+  xcore_local_ip: "192.168.1.3"

@@ -1,0 +1,4 @@
+teleop_core:
+  ros__parameters:
+    position_scale: 1.0
+    rotation_scale: 0.5

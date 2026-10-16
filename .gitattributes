@@ -1,0 +1,9 @@
+# Keep vendored SDK binaries out of regular Git objects.
+*.a filter=lfs diff=lfs merge=lfs -text
+*.so filter=lfs diff=lfs merge=lfs -text
+*.so.* filter=lfs diff=lfs merge=lfs -text
+*.lib filter=lfs diff=lfs merge=lfs -text
+*.dll filter=lfs diff=lfs merge=lfs -text
+*.pyd filter=lfs diff=lfs merge=lfs -text
+# Preserve the camera SDK's symbolic links, including Windows checkouts.
+src/vendor_ros/orbbec_305/OrbbecSDK_ROS2-2-main/orbbec_camera/SDK/lib/*/libOrbbecSDK.so.2 -filter -diff -merge -text

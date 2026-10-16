@@ -1,0 +1,9 @@
+# 非实时 MOVEJ 调试接口；摇操主链路应优先使用 servo/ArmServoCommand。
+float64[] joint_positions
+int32 move_mode
+bool is_blocking
+float64 speed
+int32 robot_arm_index 0
+---
+bool success
+string message

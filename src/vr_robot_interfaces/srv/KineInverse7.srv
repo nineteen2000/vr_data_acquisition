@@ -1,0 +1,8 @@
+# TCP 位姿 -> 7 轴关节角，当前由 xCoreSDK model 计算。
+float64[] ref_joint_pos
+float64[] cartesian_pose
+int32 robot_arm_index 0
+---
+bool success
+string message
+float64[] joint_positions

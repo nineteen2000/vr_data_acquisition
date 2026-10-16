@@ -1,0 +1,7 @@
+# 7 轴关节角 -> TCP 位姿，用于调试和上层链路校验。
+float64[] joint_positions
+int32 robot_arm_index 0
+---
+bool success
+string message
+float64[] cartesian_pose

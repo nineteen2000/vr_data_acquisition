@@ -1,0 +1,9 @@
+# 非实时 MOVEL 调试接口；不作为 VR 连续摇操的主入口。
+float64[] end_position
+int32 move_mode
+bool is_blocking
+float64 speed
+int32 robot_arm_index 0
+---
+bool success
+string message

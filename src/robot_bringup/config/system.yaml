@@ -1,0 +1,20 @@
+system:
+  use_lhandpro_hands: true
+  use_pico_vr: true
+  use_xcore_arms: true
+  use_teleop_core: true
+  cameras:
+    wrist:
+      enabled: true
+      launch_file: gemini_301_series.launch.py
+      name: wrist_camera
+      serial_number: 'CV275610006D'
+      usb_port: '2-1.1'
+      config_file: gemini305_dual_color.yaml
+    global:
+      enabled: true
+      launch_file: gemini_330_series.launch.py
+      name: global_camera
+      serial_number: 'CPCV5530010F'
+      usb_port: '2-1.3'
+      config_file: camera_params.yaml
